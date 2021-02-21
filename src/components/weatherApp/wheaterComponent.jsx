@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
+import { icons } from "../../assets/images/index.js";
 
-export default function WheatherComponent() {
+export default function WheatherComponent(props) {
   const [lat, setLat] = useState(null);
   const [long, setLong] = useState(null);
   const [weatherData, setWeatherData] = useState(null);
@@ -26,10 +27,11 @@ export default function WheatherComponent() {
       try {
         response = await fetch(apiUrl);
         result = await response.json();
+        setWeatherData(result);
+        console.group(result);
       } catch (err) {
         setErr("There was a problem.");
       }
-      setWeatherData(result);
     }
   };
 
@@ -52,6 +54,10 @@ export default function WheatherComponent() {
           <p>Current Temperature: {weatherData.main.temp} &deg;C</p>
           <p>But feels like: {weatherData.main.feels_like} &deg;C</p>
           <p>Wind speed: {weatherData.wind.speed} m/s</p>
+          <img
+            src={icons[`${weatherData.weather[0]["icon"]}`]}
+            alt={weatherData.weather[0]["description"]}
+          />
         </div>
       ) : (
         <div className="error-msg">

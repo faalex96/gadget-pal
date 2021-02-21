@@ -5,7 +5,7 @@ export default function GadgetContainer(props) {
         <h3>{props.title}</h3>
         <p>{props.note}</p>
       </div>
-      <div className="gadget-body"></div>
+      <div className="gadget-body">{props.children}</div>
     </div>
   );
 }
