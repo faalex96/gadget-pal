@@ -1,18 +1,17 @@
 import React from "react";
 
-const scaleNames = {
-  base: "Euro",
-  second: "USD",
-};
-
+// Function for exchanging to second currency
 function toSecondCurr(curr1, exchangeRate) {
   return curr1 / exchangeRate;
 }
 
+// Function for exchanging to base currency
 function toBaseCurr(curr2, exchangeRate) {
   return curr2 * exchangeRate;
 }
 
+// Function that tries to do conversion and does the rounding of a number
+// convert is a callback
 function tryConvert(currency, convert, exchangeRate) {
   const input = parseFloat(currency);
   if (Number.isNaN(input)) {
@@ -23,6 +22,8 @@ function tryConvert(currency, convert, exchangeRate) {
   return rounded.toString();
 }
 
+// CurrencyInput is a child component of calculator component
+// It handles changes trough methods from parent component calculator
 class CurrencyInput extends React.Component {
   constructor(props) {
     super(props);
@@ -40,21 +41,28 @@ class CurrencyInput extends React.Component {
 
   render() {
     const amount = this.props.amount;
-    const scale = this.props.scale;
     const curr = this.props.curr;
     return (
-      <div>
+      <div className="currency-input">
         <input value={amount} onChange={this.handleChange} />
         <select onChange={this.handleSelect} value={curr}>
           <option value="EUR">EUR</option>
           <option value="USD">USD</option>
-          <option value="PHP">PHP</option>
+          <option value="RSD">RSD</option>
+          <option value="JPY">JPY</option>
+          <option value="CHF">CHF</option>
+          <option value="GBP">GBP</option>
+          <option value="HRK">HRK</option>
+          <option value="HRK">HRK</option>
+          <option value="HUF">HUF</option>
         </select>
       </div>
     );
   }
 }
 
+// Calculator is the parent component which handles all the state changes
+// Does the data fetching and handles calculations for currency conversion
 class Calculator extends React.Component {
   constructor(props) {
     super(props);
@@ -114,16 +122,14 @@ class Calculator extends React.Component {
 
     console.log(this.state.curr1, this.state.curr2, this.state.exchangeRate);
     return (
-      <div>
+      <div className="currency-calculator">
         <CurrencyInput
-          scale="base"
           amount={curr1}
           onCurrencyChange={this.handleCurr1Change}
           handleSelectChange={this.handleSelectOne}
           curr={this.state.curr1}
         />
         <CurrencyInput
-          scale="second"
           amount={curr2}
           onCurrencyChange={this.handleCurr2Change}
           handleSelectChange={this.handleSelectTwo}
