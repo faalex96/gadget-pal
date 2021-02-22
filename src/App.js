@@ -7,6 +7,7 @@ import GadgetContainer from "./components/gadgetContainer";
 import WheatherComponent from "./components/weatherApp/wheaterComponent";
 import Calculator from "./components/currencyApp/currencyComponent";
 import BirthdayComponent from "./components/birthdayApp/birthdayComponent";
+import QuoteComponent from "./components/quoteApp/quoteComponent";
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
       </GadgetContainer>
       <GadgetContainer title={"Currency Exchange"} note={"Should I invest?"}>
         <Calculator />
+      </GadgetContainer>
+      <GadgetContainer title={"Quote of the day"} note={"Get inspired"}>
+        <QuoteComponent />
       </GadgetContainer>
     </div>
   );
