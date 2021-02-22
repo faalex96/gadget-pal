@@ -1,5 +1,18 @@
 import Calendar from "react-calendar";
 import { useEffect, useState } from "react";
+import Confetti from "react-dom-confetti";
+
+// configuration for confetti
+const config = {
+  angle: 90,
+  spread: 360,
+  startVelocity: 40,
+  elementCount: 70,
+  dragFriction: 0.12,
+  duration: 1500,
+  stagger: 3,
+  decay: 0.87,
+};
 
 // Check if there is an item in localStorage
 function checkItem(itemKey) {
@@ -44,13 +57,21 @@ function AddBirthday(props) {
   );
 }
 
+// Displays todays birthdays
 function DisplayBirthday(props) {
+  const [confetti, setConfetti] = useState(false);
+
+  useEffect(() => {
+    setConfetti(true);
+  }, []);
+
   return (
     <div className="birthday-display">
       <p>Congratulate birthday to:</p>
       <p>
         {props.firstName} {props.lastName}
       </p>
+      <Confetti active={confetti} config={config} />
     </div>
   );
 }
@@ -61,10 +82,6 @@ function BirthdayComponent() {
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  // Since we dont store birthdays in state, currentB is created so
-  // re-render would happend after submiting a new birthday -
-  // if today is persons birthday, i'd like to show it
-  const [currentB, setCurrentB] = useState("");
   const [value, onChange] = useState(new Date());
 
   // This function handles birthday submision if there is no
@@ -86,7 +103,8 @@ function BirthdayComponent() {
       birthdays.push(bd);
     }
     window.localStorage.setItem("birthdays", JSON.stringify(birthdays));
-    setCurrentB(birthdays[birthdays.length - 1]);
+    setFirstName("");
+    setLastName("");
   };
 
   // handles change when writing to input
@@ -121,6 +139,7 @@ function BirthdayComponent() {
                   firstName={birthday.firstName}
                   lastName={birthday.lastName}
                   key={birthday.id}
+                  activate={"yes"}
                 />
               );
             }

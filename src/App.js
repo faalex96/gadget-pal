@@ -12,17 +12,17 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <GadgetContainer title={"Weather App"} note={"Check out the weather"}>
-        <WheatherComponent />
-      </GadgetContainer>
-      <GadgetContainer title={"Currency Exchange"} note={"Should I invest?"}>
-        <Calculator />
-      </GadgetContainer>
       <GadgetContainer
         title={"Birthday reminder"}
         note={"Congratulate your friends birthday."}
       >
         <BirthdayComponent />
+      </GadgetContainer>
+      <GadgetContainer title={"Weather App"} note={"Check out the weather"}>
+        <WheatherComponent />
+      </GadgetContainer>
+      <GadgetContainer title={"Currency Exchange"} note={"Should I invest?"}>
+        <Calculator />
       </GadgetContainer>
     </div>
   );
