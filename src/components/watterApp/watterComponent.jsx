@@ -50,16 +50,19 @@ function WatterIntake() {
   const today = new Date().toDateString();
 
   useEffect(() => {
+    let lastItem;
     if (checkItem("watterData")) {
       manipulateData("create");
     } else {
       let wd = JSON.parse(window.localStorage.getItem("watterData"));
-      let lastItem = wd[wd.length - 1];
+      lastItem = wd[wd.length - 1];
       if (lastItem.date !== today) {
         manipulateData("update");
+        setGlassesNum(0);
+      } else {
+        setGlassesNum(lastItem.glassesNum);
       }
     }
-    setGlassesNum(lastItem.glassesNum);
   }, []);
 
   // Handles clicking + and - buttons for glass number
@@ -89,7 +92,7 @@ function WatterIntake() {
     <div style={{ display: "flex" }}>
       <div className="watter-intake">
         <p>Water</p>
-        <p>Glasses </p>
+        <p>Glasses {glassesNum}</p>
         <button type="button" id="add-glass" onClick={handleGlassesNum}>
           +
         </button>

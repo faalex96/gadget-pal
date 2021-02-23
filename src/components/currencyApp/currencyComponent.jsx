@@ -76,17 +76,24 @@ class Calculator extends React.Component {
       exchangeRate: "",
       curr1: "EUR",
       curr2: "EUR",
+      err: "",
     };
   }
 
   getCurrData = async () => {
-    const curr1 = this.state.curr1;
-    const curr2 = this.state.curr2;
-    const response = await fetch(
-      `https://free.currconv.com/api/v7/convert?q=${curr1}_${curr2}&compact=ultra&apiKey=d41b8ae73694fcf0acfd`
-    );
-    const result = await response.json();
-    this.setState({ exchangeRate: result[`${curr1}_${curr2}`] });
+    try {
+      const curr1 = this.state.curr1;
+      const curr2 = this.state.curr2;
+      const response = await fetch(
+        `https://free.currconv.com/api/v7/convert?q=${curr1}_${curr2}&compact=ultra&apiKey=d41b8ae73694fcf0acfd`
+      );
+      const result = await response.json();
+      this.setState({ exchangeRate: result[`${curr1}_${curr2}`] });
+    } catch (err) {
+      this.setState({
+        err: "There was a problem with data for exchange rate.",
+      });
+    }
   };
 
   componentDidMount() {
@@ -120,23 +127,33 @@ class Calculator extends React.Component {
     const curr2 =
       scale === "base" ? tryConvert(amount, toBaseCurr, exchangeRate) : amount;
 
-    console.log(this.state.curr1, this.state.curr2, this.state.exchangeRate);
-    return (
-      <div className="currency-calculator">
-        <CurrencyInput
-          amount={curr1}
-          onCurrencyChange={this.handleCurr1Change}
-          handleSelectChange={this.handleSelectOne}
-          curr={this.state.curr1}
-        />
-        <CurrencyInput
-          amount={curr2}
-          onCurrencyChange={this.handleCurr2Change}
-          handleSelectChange={this.handleSelectTwo}
-          curr={this.state.curr2}
-        />
-      </div>
-    );
+    let element;
+    if (this.state.err) {
+      element = (
+        <div className="currency-calculator">
+          <p>{this.state.err}</p>
+        </div>
+      );
+    } else {
+      element = (
+        <div className="currency-calculator">
+          <CurrencyInput
+            amount={curr1}
+            onCurrencyChange={this.handleCurr1Change}
+            handleSelectChange={this.handleSelectOne}
+            curr={this.state.curr1}
+          />
+          <CurrencyInput
+            amount={curr2}
+            onCurrencyChange={this.handleCurr2Change}
+            handleSelectChange={this.handleSelectTwo}
+            curr={this.state.curr2}
+          />
+        </div>
+      );
+    }
+
+    return element;
   }
 }
 

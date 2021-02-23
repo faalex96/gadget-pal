@@ -28,7 +28,6 @@ export default function WheatherComponent(props) {
         response = await fetch(apiUrl);
         result = await response.json();
         setWeatherData(result);
-        console.group(result);
       } catch (err) {
         setErr("There was a problem.");
       }
