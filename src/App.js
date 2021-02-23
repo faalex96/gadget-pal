@@ -9,6 +9,7 @@ import Calculator from "./components/currencyApp/currencyComponent";
 import BirthdayComponent from "./components/birthdayApp/birthdayComponent";
 import QuoteComponent from "./components/quoteApp/quoteComponent";
 import WatterIntake from "./components/watterApp/watterComponent";
+import ToDoComponent from "./components/todoApp/todoComponent";
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
       </GadgetContainer>
       <GadgetContainer title={"Water app"} note={"Track your water intake"}>
         <WatterIntake />
+      </GadgetContainer>
+      <GadgetContainer title={"Todo app"} note={"Write down your chores"}>
+        <ToDoComponent />
       </GadgetContainer>
     </div>
   );
