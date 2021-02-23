@@ -2,28 +2,21 @@ import { useEffect, useState } from "react";
 import { checkItem } from "../birthdayApp/birthdayComponent";
 import { Bar } from "react-chartjs-2";
 
-let dataSet = [];
-let dataLabels = [];
-if (!checkItem("watterData")) {
-  const wData = JSON.parse(window.localStorage.getItem("watterData"));
-  for (let item of wData) {
-    dataSet.push(item["glassesNum"]);
-    dataLabels.push(item["date"]);
+// function retrives data from localStorage
+// this data is used for bar chart
+function retriveData() {
+  let dataSet = [];
+  let dataLabels = [];
+  if (!checkItem("watterData")) {
+    const wData = JSON.parse(window.localStorage.getItem("watterData"));
+    for (let item of wData) {
+      dataSet.push(item["glassesNum"]);
+      dataLabels.push(item["date"]);
+    }
+    return [dataSet, dataLabels];
   }
+  return [null, null];
 }
-console.log(dataSet);
-console.log(dataLabels);
-
-const state = {
-  datasets: [
-    {
-      data: dataSet,
-      label: "This year",
-      backgroundColor: "rgba(120,100,192,1)",
-    },
-  ],
-  labels: dataLabels,
-};
 
 // Function for creating data and push new item
 // to array if its a new day
@@ -66,6 +59,7 @@ function WatterIntake() {
         manipulateData("update");
       }
     }
+    setGlassesNum(lastItem.glassesNum);
   }, []);
 
   // Handles clicking + and - buttons for glass number
@@ -94,8 +88,8 @@ function WatterIntake() {
   return (
     <div style={{ display: "flex" }}>
       <div className="watter-intake">
-        <p>Watter</p>
-        <p>Glasses {glassesNum}</p>
+        <p>Water</p>
+        <p>Glasses </p>
         <button type="button" id="add-glass" onClick={handleGlassesNum}>
           +
         </button>
@@ -105,11 +99,20 @@ function WatterIntake() {
       </div>
       <div className="chart" style={{ width: 500, height: 500 }}>
         <Bar
-          data={state}
+          data={{
+            datasets: [
+              {
+                data: retriveData()[0],
+                label: "This year",
+                backgroundColor: "rgba(120,100,192,1)",
+              },
+            ],
+            labels: retriveData()[1],
+          }}
           options={{
             title: {
               display: true,
-              text: "Watter intake",
+              text: "Water intake",
               fontSize: 20,
             },
             legend: {

@@ -29,7 +29,7 @@ function App() {
       <GadgetContainer title={"Quote of the day"} note={"Get inspired"}>
         <QuoteComponent />
       </GadgetContainer>
-      <GadgetContainer title={"Watter app"} note={"Track your watter intake"}>
+      <GadgetContainer title={"Water app"} note={"Track your water intake"}>
         <WatterIntake />
       </GadgetContainer>
     </div>
