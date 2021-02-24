@@ -1,7 +1,9 @@
-header {
+header,
+footer {
   font-family: "Lato", sans-serif;
   padding: 3rem 3rem;
-  border: 1px solid red;
+  background: var(--primary-set2-1);
+  color: var(--primary-set1-4);
 }
 
 h1 {

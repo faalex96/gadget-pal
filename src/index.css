@@ -1,5 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Lato:wght@300;400;700&family=Montserrat:wght@200;300;400;500&family=Open+Sans:wght@300;400&display=swap");
 
+:root {
+  /* first set of colors */
+  --primary-set1-1: rgb(190, 246, 253);
+  --primary-set1-2: #4e001c;
+  --primary-set1-3: rgb(190, 190, 190);
+  --primary-set1-4: rgb(231, 217, 217);
+  /* second set */
+  --primary-set2-1: #19395c;
+  --primary-set2-2: #9dd5f7;
+  --primary-set2-3: #945c5c;
+  --primary-set2-4: #335981;
+}
+
 html {
   font-size: 16px;
 }
@@ -22,9 +35,6 @@ input[type="text"]:focus {
   outline-color: rgb(142, 189, 189);
 }
 
-/*
-font-family: 'Dancing Script', cursive;
-font-family: 'Lato', sans-serif;
-font-family: 'Montserrat', sans-serif;
-font-family: 'Open Sans', sans-serif;
-*/
+#root {
+  background-color: var(--primary-set2-2);
+}

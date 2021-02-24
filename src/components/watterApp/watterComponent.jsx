@@ -114,6 +114,7 @@ function WatterIntake() {
             labels: retriveData()[1],
           }}
           options={{
+            maintainAspectRatio: false,
             title: {
               display: true,
               text: "Water intake",

@@ -1,10 +1,15 @@
 .gadget-contianer {
   border: 1px solid black;
   margin: 2rem 2rem;
+  background: white;
+  border-radius: 8px;
 }
 
 .gadget-header {
-  border: 1px solid blue;
+  border-bottom: 1px solid var(--primary-set1-3);
+  background: var(--primary-set2-3);
+  border-radius: 0.25rem 0.25rem 0 0;
+  color: var(--primary-set1-4);
   padding: 1rem 1rem;
 }
 

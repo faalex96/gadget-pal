@@ -12,6 +12,7 @@
   margin-left: 1.5rem;
   background: rgb(37, 170, 48);
   color: white;
+  outline: none;
 }
 
 .todo-container button:hover {

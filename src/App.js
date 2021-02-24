@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import "./App.css";
 import "./components/gContainer.css";
 import "react-calendar/dist/Calendar.css";
-import Header from "./components/header";
 import GadgetContainer from "./components/gadgetContainer";
 import WheatherComponent from "./components/weatherApp/wheaterComponent";
 import Calculator from "./components/currencyApp/currencyComponent";
@@ -10,11 +9,12 @@ import BirthdayComponent from "./components/birthdayApp/birthdayComponent";
 import QuoteComponent from "./components/quoteApp/quoteComponent";
 import WatterIntake from "./components/watterApp/watterComponent";
 import ToDoComponent from "./components/todoApp/todoComponent";
+import Banner from "./components/banner";
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      <Banner purpose={"header"} />
       <GadgetContainer
         title={"Birthday reminder"}
         note={"Congratulate your friends birthday."}
@@ -36,6 +36,7 @@ function App() {
       <GadgetContainer title={"Todo app"} note={"Write down your chores"}>
         <ToDoComponent />
       </GadgetContainer>
+      <Banner purpose={"footer"} />
     </div>
   );
 }
