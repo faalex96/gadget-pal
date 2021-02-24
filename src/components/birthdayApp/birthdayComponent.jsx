@@ -15,7 +15,7 @@ const config = {
 };
 
 // Check if there is an item in localStorage
-function checkItem(itemKey) {
+export function checkItem(itemKey) {
   return window.localStorage.getItem(itemKey) === null;
 }
 

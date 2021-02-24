@@ -8,6 +8,7 @@ import WheatherComponent from "./components/weatherApp/wheaterComponent";
 import Calculator from "./components/currencyApp/currencyComponent";
 import BirthdayComponent from "./components/birthdayApp/birthdayComponent";
 import QuoteComponent from "./components/quoteApp/quoteComponent";
+import WatterIntake from "./components/watterApp/watterComponent";
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
       </GadgetContainer>
       <GadgetContainer title={"Quote of the day"} note={"Get inspired"}>
         <QuoteComponent />
+      </GadgetContainer>
+      <GadgetContainer title={"Watter app"} note={"Track your watter intake"}>
+        <WatterIntake />
       </GadgetContainer>
     </div>
   );
