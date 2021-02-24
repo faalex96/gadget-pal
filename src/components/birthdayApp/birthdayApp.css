@@ -1,0 +1,47 @@
+.birthday-app {
+  margin-bottom: 2rem;
+}
+
+.add-birhtday {
+  display: flex;
+}
+
+.add-birhtday form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  padding: 1rem;
+  font-family: "Lato", sans-serif;
+  font-size: 1rem;
+}
+
+form input[type="text"] {
+  margin-left: 0.5rem;
+}
+
+form button {
+  width: 6rem;
+  height: 3rem;
+  margin: auto;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+}
+
+.congratulations {
+  flex: 1;
+  font-family: "Montserrat", sans-serif;
+}
+
+.birthday-display {
+  margin: 1rem;
+}
+
+.congratulations p {
+  font-size: 1rem;
+  margin: 0.4rem;
+}

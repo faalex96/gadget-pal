@@ -1,0 +1,21 @@
+.quote-app {
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.content {
+  display: flex;
+}
+
+.quote-txt {
+  font-family: "Montserrat", sans-serif;
+  font-family: 200;
+  font-size: 1.5rem;
+}
+
+.quote-author {
+  margin: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 200;
+  font-family: "Montserrat", sans-serif;
+}

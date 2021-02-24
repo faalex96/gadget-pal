@@ -24,7 +24,7 @@ function App() {
       <GadgetContainer title={"Weather App"} note={"Check out the weather"}>
         <WheatherComponent />
       </GadgetContainer>
-      <GadgetContainer title={"Currency Exchange"} note={"Should I invest?"}>
+      <GadgetContainer title={"Currency Exchange"} note={"Should you invest?"}>
         <Calculator />
       </GadgetContainer>
       <GadgetContainer title={"Quote of the day"} note={"Get inspired"}>

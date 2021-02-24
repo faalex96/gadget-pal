@@ -1,4 +1,5 @@
 import React from "react";
+import "./currencyApp.css";
 
 // Function for exchanging to second currency
 function toSecondCurr(curr1, exchangeRate) {
@@ -44,7 +45,7 @@ class CurrencyInput extends React.Component {
     const curr = this.props.curr;
     return (
       <div className="currency-input">
-        <input value={amount} onChange={this.handleChange} />
+        <input type="text" value={amount} onChange={this.handleChange} />
         <select onChange={this.handleSelect} value={curr}>
           <option value="EUR">EUR</option>
           <option value="USD">USD</option>

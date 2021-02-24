@@ -1,6 +1,7 @@
 import Calendar from "react-calendar";
 import { useEffect, useState } from "react";
 import Confetti from "react-dom-confetti";
+import "./birthdayApp.css";
 
 // configuration for confetti
 const config = {
@@ -27,10 +28,7 @@ function AddBirthday(props) {
   };
 
   return (
-    <div
-      className="add-birhtday"
-      style={{ display: "flex", flexDirection: "column" }}
-    >
+    <div className="add-birhtday">
       <form onSubmit={handleSubmit}>
         <label>
           First name:
@@ -50,9 +48,9 @@ function AddBirthday(props) {
             onChange={props.handleNChange}
           />
         </label>
-        <Calendar onChange={props.handleCalendarChange} value={props.value} />
         <button type="submit">Submit</button>
       </form>
+      <Calendar onChange={props.handleCalendarChange} value={props.value} />
     </div>
   );
 }
@@ -68,7 +66,7 @@ function DisplayBirthday(props) {
   return (
     <div className="birthday-display">
       <p>Congratulate birthday to:</p>
-      <p>
+      <p className="celebrant">
         {props.firstName} {props.lastName}
       </p>
       <Confetti active={confetti} config={config} />
@@ -130,7 +128,7 @@ function BirthdayComponent() {
         value={value}
         handleCalendarChange={onChange}
       />
-      <div className="congratiulations">
+      <div className="congratulations">
         {birthdays &&
           birthdays.map((birthday) => {
             if (today === birthday["birthday"]) {

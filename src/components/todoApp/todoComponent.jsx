@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { checkItem } from "../birthdayApp/birthdayComponent";
+import "./todoApp.css";
 
 // Input component has input text and Add/Edit button
 // which depends on action

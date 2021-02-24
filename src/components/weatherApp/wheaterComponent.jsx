@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { icons } from "../../assets/images/index.js";
+import "./weatherApp.css";
 
 export default function WheatherComponent(props) {
   const [lat, setLat] = useState(null);

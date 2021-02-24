@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { checkItem } from "../birthdayApp/birthdayComponent";
 import { Bar } from "react-chartjs-2";
+import "./waterApp.css";
 
 // function retrives data from localStorage
 // this data is used for bar chart
@@ -89,7 +90,7 @@ function WatterIntake() {
   };
 
   return (
-    <div style={{ display: "flex" }}>
+    <div className="watter-app">
       <div className="watter-intake">
         <p>Water</p>
         <p>Glasses {glassesNum}</p>
@@ -100,14 +101,14 @@ function WatterIntake() {
           -
         </button>
       </div>
-      <div className="chart" style={{ width: 500, height: 500 }}>
+      <div className="chart">
         <Bar
           data={{
             datasets: [
               {
                 data: retriveData()[0],
                 label: "This year",
-                backgroundColor: "rgba(120,100,192,1)",
+                backgroundColor: "rgba(124, 190, 235,1)",
               },
             ],
             labels: retriveData()[1],
@@ -127,6 +128,7 @@ function WatterIntake() {
                 {
                   ticks: {
                     suggestedMin: 0,
+                    suggestedMax: 10,
                   },
                 },
               ],

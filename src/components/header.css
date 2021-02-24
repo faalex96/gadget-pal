@@ -1,0 +1,17 @@
+header {
+  font-family: "Lato", sans-serif;
+  padding: 3rem 3rem;
+  border: 1px solid red;
+}
+
+h1 {
+  padding: 1rem;
+  font-weight: 300;
+  font-size: 3rem;
+}
+
+h4 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 200;
+  font-size: 1.5rem;
+}

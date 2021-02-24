@@ -1,0 +1,46 @@
+.todo-container {
+  margin-bottom: 2rem;
+  width: 50%;
+  margin: auto;
+}
+
+.todo-container button {
+  font-size: 1.3rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border: none;
+  margin-left: 1.5rem;
+  background: rgb(37, 170, 48);
+  color: white;
+}
+
+.todo-container button:hover {
+  cursor: pointer;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.note-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 1rem 0;
+}
+
+.note-txt {
+  font-size: 1.2rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+#delete-btn {
+  background: rgb(172, 8, 8);
+}
+
+#edit-btn {
+  background: rgb(223, 107, 13);
+}
