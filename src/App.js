@@ -16,37 +16,37 @@ import SideBar from "./components/sideBar/sideBar";
 const apps = [
   {
     birthday: <BirthdayComponent />,
-    title: "Birthday reminder",
+    title: "Birthday",
     note: "Congratulate birthday to your friends",
     id: "birthday",
   },
   {
     weather: <WheatherComponent />,
-    title: "Weather App",
+    title: "Weather",
     note: "Check out the weather",
     id: "weather",
   },
   {
     currency: <Calculator />,
-    title: "Currency Exchange",
+    title: "Currency",
     note: "Should you invest?r",
     id: "currency",
   },
   {
     quote: <QuoteComponent />,
-    title: "Quote of the day",
+    title: "Inspiring Quote",
     note: "Get inspired",
     id: "quote",
   },
   {
     water: <WatterIntake />,
-    title: "Water app",
+    title: "Water Intake",
     note: "Track your water intake",
     id: "water",
   },
   {
     todo: <ToDoComponent />,
-    title: "Todo app",
+    title: "Todo ",
     note: "Write down your chores",
     id: "todo",
   },
@@ -76,13 +76,13 @@ function App() {
     <div className="App">
       <Banner purpose={"header"} />
       <BurgerMenu handleClick={handleClickBurger} />
-      <SideBar
+      <GadgetContainer
+        title={currentApp["title"]}
+        note={currentApp["note"]}
         apps={apps}
         handleClick={handleClick}
         activity={clickBurger}
-        handleClose={handleClose}
-      />
-      <GadgetContainer title={currentApp["title"]} note={currentApp["note"]}>
+      >
         {currentApp[app]}
       </GadgetContainer>
 
@@ -92,27 +92,3 @@ function App() {
 }
 
 export default App;
-
-/*
-<GadgetContainer
-title={"Birthday reminder"}
-note={"Congratulate your friends birthday."}
->
-<BirthdayComponent />
-</GadgetContainer>
-<GadgetContainer title={"Weather App"} note={"Check out the weather"}>
-<WheatherComponent />
-</GadgetContainer>
-<GadgetContainer title={"Currency Exchange"} note={"Should you invest?"}>
-<Calculator />
-</GadgetContainer>
-<GadgetContainer title={"Quote of the day"} note={"Get inspired"}>
-<QuoteComponent />
-</GadgetContainer>
-<GadgetContainer title={"Water app"} note={"Track your water intake"}>
-<WatterIntake />
-</GadgetContainer>
-<GadgetContainer title={"Todo app"} note={"Write down your chores"}>
-<ToDoComponent />
-</GadgetContainer>
-*/

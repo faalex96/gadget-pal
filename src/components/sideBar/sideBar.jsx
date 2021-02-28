@@ -1,4 +1,4 @@
-import { Children } from "react";
+import "./sidebar.css";
 
 function Button(props) {
   return (
@@ -17,15 +17,6 @@ function Button(props) {
 export default function SideBar(props) {
   return (
     <div id="sidebar" className={props.activity}>
-      <button
-        type="button"
-        id="close-btn"
-        onClick={() => {
-          props.handleClose();
-        }}
-      >
-        X
-      </button>
       {props.apps.map((app) => {
         return (
           <Button
