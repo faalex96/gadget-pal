@@ -102,40 +102,37 @@ function WatterIntake() {
         </button>
       </div>
       <div className="chart">
-        <Bar
-          data={{
-            datasets: [
-              {
-                data: retriveData()[0],
-                label: "This year",
-                backgroundColor: "rgba(124, 190, 235,1)",
-              },
-            ],
-            labels: retriveData()[1],
-          }}
-          options={{
-            maintainAspectRatio: false,
-            title: {
-              display: true,
-              text: "Water intake",
-              fontSize: 20,
-            },
-            legend: {
-              display: true,
-              position: "top",
-            },
-            scales: {
-              yAxes: [
+        <div className="wrapper">
+          <Bar
+            data={{
+              datasets: [
                 {
-                  ticks: {
-                    suggestedMin: 0,
-                    suggestedMax: 10,
-                  },
+                  data: retriveData()[0],
+                  backgroundColor: "rgba(124, 190, 235,1)",
                 },
               ],
-            },
-          }}
-        />
+              labels: retriveData()[1],
+            }}
+            options={{
+              maintainAspectRatio: true,
+              title: {
+                display: true,
+                text: "Water intake",
+                fontSize: 20,
+              },
+              scales: {
+                yAxes: [
+                  {
+                    ticks: {
+                      suggestedMin: 0,
+                      suggestedMax: 10,
+                    },
+                  },
+                ],
+              },
+            }}
+          />
+        </div>
       </div>
     </div>
   );
