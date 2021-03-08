@@ -30,7 +30,7 @@ function AddBirthday(props) {
   return (
     <div className="add-birhtday">
       <form onSubmit={handleSubmit}>
-        <label for="fname">First name: </label>
+        <label htmlFor="fname">First name: </label>
 
         <input
           type="text"
@@ -40,7 +40,7 @@ function AddBirthday(props) {
           name="fname"
         />
 
-        <label for="lname">Last name:</label>
+        <label htmlFor="lname">Last name:</label>
 
         <input
           type="text"

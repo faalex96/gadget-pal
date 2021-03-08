@@ -14,7 +14,11 @@ function retriveData() {
       dataSet.push(item["glassesNum"]);
       dataLabels.push(item["date"]);
     }
-    return [dataSet, dataLabels];
+    if (dataSet.length <= 5) {
+      return [dataSet, dataLabels];
+    } else {
+      return [dataSet.slice(-5), dataLabels.slice(-5)];
+    }
   }
   return [null, null];
 }
@@ -109,11 +113,13 @@ function WatterIntake() {
                 {
                   data: retriveData()[0],
                   backgroundColor: "rgba(124, 190, 235,1)",
+                  label: "glasses",
                 },
               ],
               labels: retriveData()[1],
             }}
             options={{
+              responsive: true,
               maintainAspectRatio: true,
               title: {
                 display: true,
