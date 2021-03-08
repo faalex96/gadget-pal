@@ -1,5 +1,6 @@
 .birthday-app {
   margin-bottom: 2rem;
+  display: flex;
 }
 
 .add-birhtday {
@@ -19,7 +20,7 @@ form label {
 }
 
 form input[type="text"] {
-  margin-left: 0.5rem;
+  margin: 0 0.5rem;
 }
 
 form button {
@@ -53,7 +54,7 @@ form button:hover {
 
 .congratulations p {
   font-size: 1rem;
-  margin: 0.4rem;
+  margin: 0.4rem 0;
 }
 
 @media screen and (max-width: 900px) {
@@ -73,3 +74,27 @@ form button:hover {
     margin: 1rem auto;
   }
 }
+
+/* @media screen and (max-width: 400px) {
+  form label {
+    padding: 1rem;
+    font-family: "Lato", sans-serif;
+    font-size: 1rem;
+  } 
+
+  form input[type="text"] {
+    margin: 0;
+  }
+
+  .react-calendar__navigation {
+    max-width: 100%;
+  }
+
+  .birthday-display {
+    margin: 0;
+  }
+
+  .birthday-display div {
+    display: flex;
+  }
+} */

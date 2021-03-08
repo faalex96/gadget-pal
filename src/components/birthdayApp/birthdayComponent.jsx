@@ -30,24 +30,26 @@ function AddBirthday(props) {
   return (
     <div className="add-birhtday">
       <form onSubmit={handleSubmit}>
-        <label>
-          First name:
-          <input
-            type="text"
-            value={props.firstName}
-            id="first-name"
-            onChange={props.handleNChange}
-          />
-        </label>
-        <label>
-          Last name:
-          <input
-            type="text"
-            value={props.lastName}
-            id="last-name"
-            onChange={props.handleNChange}
-          />
-        </label>
+        <label for="fname">First name: </label>
+
+        <input
+          type="text"
+          value={props.firstName}
+          id="first-name"
+          onChange={props.handleNChange}
+          name="fname"
+        />
+
+        <label for="lname">Last name:</label>
+
+        <input
+          type="text"
+          value={props.lastName}
+          id="last-name"
+          onChange={props.handleNChange}
+          name="lname"
+        />
+
         <button type="submit">Submit</button>
       </form>
       <Calendar onChange={props.handleCalendarChange} value={props.value} />
@@ -119,7 +121,7 @@ function BirthdayComponent() {
   // if there is it will map all the birthdays that have todays date
   // and show them
   return (
-    <div className="birthday-app" style={{ display: "flex" }}>
+    <div className="birthday-app">
       <AddBirthday
         handleSubmitForm={handleSubmit}
         handleNChange={handleNameChange}

@@ -1,16 +1,26 @@
 .burger-menu {
   width: 2rem;
   height: 2rem;
-  margin: 0.5rem;
+  margin-top: 1.5rem;
+  margin-left: 2rem;
+  display: none;
+  justify-content: center;
 }
 
 .line {
   width: 100%;
-  border: 2px solid black;
+  border: 2px solid var(--primary-set2-1);
+  background: var(--primary-set2-1);
   border-radius: 2px;
   margin: 4px 0;
 }
 
 .burger-menu:hover {
   cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+  .burger-menu {
+    display: block;
+  }
 }

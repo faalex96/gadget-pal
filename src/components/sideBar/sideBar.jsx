@@ -16,7 +16,7 @@ function Button(props) {
 
 export default function SideBar(props) {
   return (
-    <div id="sidebar" className={props.activity}>
+    <div id={props.activity} className={"sidebar"}>
       {props.apps.map((app) => {
         return (
           <Button

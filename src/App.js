@@ -57,15 +57,15 @@ function App() {
   const [app, setApp] = useState("birthday");
 
   const handleClickBurger = () => {
-    setClickBurger("acitve");
+    if (clickBurger === "") {
+      setClickBurger("active");
+    } else {
+      setClickBurger("");
+    }
   };
 
   const handleClick = (e) => {
     setApp(e.target.id);
-  };
-
-  const handleClose = () => {
-    setClickBurger("");
   };
 
   const currentApp = apps.find((item) => {
@@ -76,13 +76,8 @@ function App() {
     <div className="App">
       <Banner purpose={"header"} />
       <BurgerMenu handleClick={handleClickBurger} />
-      <GadgetContainer
-        title={currentApp["title"]}
-        note={currentApp["note"]}
-        apps={apps}
-        handleClick={handleClick}
-        activity={clickBurger}
-      >
+      <SideBar apps={apps} handleClick={handleClick} activity={clickBurger} />
+      <GadgetContainer title={currentApp["title"]} note={currentApp["note"]}>
         {currentApp[app]}
       </GadgetContainer>
 

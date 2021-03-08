@@ -2,17 +2,13 @@
   margin: 2rem 2rem;
   background: var(--primary-set2-2);
   display: flex;
-}
-
-.left-side {
-  flex: 1;
-  background: var(--primary-set2-2);
+  box-shadow: 6px 6px 3px rgba(60, 60, 60, 0.5);
 }
 
 .right-side {
   flex: 8;
   border: 1px solid black;
-  border-radius: 0 0.25rem 0.25rem 0.25rem;
+  border-radius: 0.25rem;
   background: white;
 }
 
@@ -39,4 +35,11 @@
 
 .gadget-body {
   margin-top: 2rem;
+}
+
+@media screen and (max-width: 400px) {
+  .gadget-contianer {
+    width: 100%;
+    margin: 0;
+  }
 }
